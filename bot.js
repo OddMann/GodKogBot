@@ -14,6 +14,8 @@ function randomteams(){
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  let d = new Date();
+  console.log(d);
 });
 
 client.on('interactionCreate', async interaction => {
