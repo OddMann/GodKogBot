@@ -42,7 +42,7 @@ client.on('interactionCreate', async interaction => {
   });
 
 let job = new cron.CronJob('* * * * *', () => {
-  client.channels.cache.get(process.env.GUILD_ID_WUB).send("<@170242031342321675>");
+  client.channels.cache.get(process.env.GUILD_ID_WUB).send(`<@${170242031342321675}>`);
   client.channels.cache.get(process.env.GUILD_ID_WUB).send("https://i.imgur.com/bnjjOzL.png");
   console.log("Sendt automatic message");
 });
