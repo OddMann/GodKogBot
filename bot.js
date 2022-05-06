@@ -5,6 +5,10 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
 let channel = "218739376413212674";
 
+function coinflip(){
+  return Math.random() >= 0.5 ? "Heads" : "Tails";
+}
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -14,6 +18,10 @@ client.on('interactionCreate', async interaction => {
 
   if (interaction.commandName === 'thori') {
     await interaction.reply("https://i.imgur.com/bnjjOzL.png");
+  }
+
+  if (interaction.commandName === 'coinflip'){
+    await interaction.reply(coinflip());
   }
 });
 

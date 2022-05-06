@@ -5,6 +5,10 @@ const { Routes } = require('discord-api-types/v9');
 const commands = [{
   name: 'thori',
   description: 'Klokka er 9'
+},
+{
+  name: 'coinflip',
+  description: 'Heads or Tails?'
 }]; 
 
 
