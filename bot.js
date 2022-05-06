@@ -3,7 +3,6 @@ const cron = require("cron");
 const { Client, Intents } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
-let channel = "218739376413212674";
 
 function coinflip(){
   return Math.random() >= 0.5 ? "Heads" : "Tails";
@@ -42,11 +41,11 @@ client.on('interactionCreate', async interaction => {
   }*/
   });
 
-let job = new cron.CronJob('00 16 * * *', () => {
-  client.channels.cache.get(channel).send("<@170242031342321675>\nhttps://i.imgur.com/bnjjOzL.png")
-  console.log("Sendt automatic message")
-  })
+let job = new cron.CronJob('01 16 * * *', () => {
+  client.channels.cache.get(process.env.GUILD_ID_WUB).send("<@170242031342321675>\nhttps://i.imgur.com/bnjjOzL.png");
+  console.log("Sendt automatic message");
+});
 
-job.start()
+job.start();
 
 client.login(process.env.TOKEN);
