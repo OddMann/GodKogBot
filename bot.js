@@ -43,7 +43,7 @@ client.on('interactionCreate', async interaction => {
   });*/
 
 let job = new cron.CronJob('50 15 * * *', () => {
-  client.send("<@170242031342321675>");
+  client.channels.cache.get(channel).send("<@170242031342321675>")
   client.channels.cache.get(channel).send("https://i.imgur.com/bnjjOzL.png")
   })
 
