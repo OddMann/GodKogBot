@@ -16,6 +16,7 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   let d = new Date();
   console.log(d);
+  client.user.setActivity('Farmen', { type: 'WATCHING'});
 });
 
 client.on('interactionCreate', async interaction => {
