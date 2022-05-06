@@ -17,7 +17,7 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-let job = new cron.CronJob('00 21 * * *', () => {
+let job = new cron.CronJob('59 20 * * *', () => {
   client.channels.cache.get(channel).send("https://i.imgur.com/bnjjOzL.png")
   })
 
