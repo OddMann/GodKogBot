@@ -42,9 +42,9 @@ client.on('interactionCreate', async interaction => {
   }*/
   });
 
-let job = new cron.CronJob('50 15 * * *', () => {
-  client.channels.cache.get(channel).send("<@170242031342321675>");
-  client.channels.cache.get(channel).send("https://i.imgur.com/bnjjOzL.png")
+let job = new cron.CronJob('00 16 * * *', () => {
+  client.channels.cache.get(channel).send("<@170242031342321675>\nhttps://i.imgur.com/bnjjOzL.png")
+  console.log("Sendt automatic message")
   })
 
 job.start()
