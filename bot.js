@@ -39,11 +39,11 @@ client.on('interactionCreate', async interaction => {
     //if(!vC){
     //  await interaction.reply({ content: "You need to join a voice channel first", ephemeral: true });
     //}
-  }
-  });*/
+  }*/
+  });
 
 let job = new cron.CronJob('50 15 * * *', () => {
-  client.channels.cache.get(channel).send("<@170242031342321675>")
+  client.channels.cache.get(channel).send("<@170242031342321675>");
   client.channels.cache.get(channel).send("https://i.imgur.com/bnjjOzL.png")
   })
 
