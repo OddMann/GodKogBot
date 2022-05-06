@@ -2,14 +2,20 @@ require('dotenv').config();
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 
-const commands = [{
+const commands = [
+{
   name: 'thori',
   description: 'Klokka er 9'
 },
 {
   name: 'coinflip',
   description: 'Heads or Tails?'
-}]; 
+},
+{
+  name: 'randomteams',
+  description: 'Takes current users in voicechannel and randomizes them between two teams'
+}
+]; 
 
 
 const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);

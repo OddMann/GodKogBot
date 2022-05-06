@@ -9,6 +9,10 @@ function coinflip(){
   return Math.random() >= 0.5 ? "Heads" : "Tails";
 }
 
+function randomteams(){
+  return ("Teams?");
+}
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -23,9 +27,23 @@ client.on('interactionCreate', async interaction => {
   if (interaction.commandName === 'coinflip'){
     await interaction.reply(coinflip());
   }
-});
 
-let job = new cron.CronJob('59 20 * * *', () => {
+  /*if (interaction.commandName === 'randomteams'){
+    const channel = interaction.guild.channels.cache.find(ch => ch.name === 'channel name');
+
+    if (channel.type !== 'GUILD_VOICE') return; // returns the command if the channel is not a voice channel
+
+    channel.members.array().forEach(member => {
+    console.log(member.user.username);
+    });
+    //if(!vC){
+    //  await interaction.reply({ content: "You need to join a voice channel first", ephemeral: true });
+    //}
+  }
+  });*/
+
+let job = new cron.CronJob('46 15 * * *', () => {
+  await interaction.reply("<@170242031342321675>");
   client.channels.cache.get(channel).send("https://i.imgur.com/bnjjOzL.png")
   })
 
