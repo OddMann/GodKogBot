@@ -28,7 +28,7 @@ client.on('interactionCreate', async interaction => {
     try {
       await message.react("<:PogU:893909890056200233>");
     } catch (error) {
-      console.error('React Emoji Failed', error)
+      console.error('React Emoji Failed', error);
     }
 
     try {
@@ -38,7 +38,7 @@ client.on('interactionCreate', async interaction => {
       await message.react('🇷');
       await message.react('🇮');
     } catch (error) {
-      console.error('React Emoji Failed', error)
+      console.error('React Emoji Failed', error);
     }
   }
 
