@@ -1,6 +1,6 @@
 require('dotenv').config();
 const cron = require("cron");
-const { Client, Intents } = require('discord.js');
+const { Client, Intents, Guild } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
 
@@ -23,30 +23,66 @@ client.on('interactionCreate', async interaction => {
   if (!interaction.isCommand()) return;
 
   if (interaction.commandName === 'thori') {
-    await interaction.reply("https://i.imgur.com/bnjjOzL.png");
+    const message = await interaction.reply({ content: "https://i.imgur.com/bnjjOzL.png", fetchReply: true});
+    
+    try {
+      await message.react("<:PogU:893909890056200233>");
+    } catch (error) {
+      console.error('React Emoji Failed', error)
+    }
+
+    try {
+      await message.react('🇹');
+      await message.react('🇭');
+      await message.react('🇴');
+      await message.react('🇷');
+      await message.react('🇮');
+    } catch (error) {
+      console.error('React Emoji Failed', error)
+    }
   }
 
   if (interaction.commandName === 'coinflip'){
     await interaction.reply(coinflip());
   }
 
-  /*if (interaction.commandName === 'randomteams'){
-    const channel = interaction.guild.channels.cache.find(ch => ch.name === 'channel name');
+  if (interaction.commandName === 'randomteams'){
+    //channel.members.array().forEach(member => {
+    //console.log(member.user.username);
+    //});
 
-    if (channel.type !== 'GUILD_VOICE') return; // returns the command if the channel is not a voice channel
+    //let userInVoice = [];
 
-    channel.members.array().forEach(member => {
-    console.log(member.user.username);
-    });
-    //if(!vC){
-    //  await interaction.reply({ content: "You need to join a voice channel first", ephemeral: true });
-    //}
-  }*/
+    //interaction.member.voice.channel.members.each(member => {
+    //  userInVoice.push(member.user.tag)
+    //  console.log(member.user.tag)
+    //})
+
+    await interaction.reply({ content: "Command not implemented", ephemeral: true });
+
+  }
   });
 
-let job = new cron.CronJob('00 00 19 * * *', () => {
+let job = new cron.CronJob('00 00 19 * * *', async() => {
   client.channels.cache.get(process.env.GUILD_ID_WUB).send(`<@${170242031342321675}>`);
-  client.channels.cache.get(process.env.GUILD_ID_WUB).send("https://i.imgur.com/bnjjOzL.png");
+  const message = await client.channels.cache.get(process.env.GUILD_ID_WUB).send({ content: "https://i.imgur.com/bnjjOzL.png", fetchReply: true});
+
+  try {
+    await message.react("<:PogU:893909890056200233>");
+  } catch (error) {
+    console.error('React Emoji Failed', error)
+  }
+
+  try {
+    await message.react('🇹');
+    await message.react('🇭');
+    await message.react('🇴');
+    await message.react('🇷');
+    await message.react('🇮');
+  } catch (error) {
+    console.error('React Emoji Failed', error)
+  }
+
   console.log("Sendt automatic message");
 });
 
