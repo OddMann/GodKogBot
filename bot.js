@@ -63,7 +63,7 @@ client.on('interactionCreate', async interaction => {
   }
   });
 
-let job = new cron.CronJob('00 00 20 * * *', async() => {
+  /* let job = new cron.CronJob('00 00 20 * * *', async() => {
   client.channels.cache.get(process.env.GUILD_ID_WUB).send(`<@${170242031342321675}>`);
   const message = await client.channels.cache.get(process.env.GUILD_ID_WUB).send({ content: "https://i.imgur.com/bnjjOzL.png", fetchReply: true});
 
@@ -84,8 +84,8 @@ let job = new cron.CronJob('00 00 20 * * *', async() => {
   }
 
   console.log("Sendt automatic message");
-});
+}); */
 
-job.start();
+//job.start();
 
 client.login(process.env.TOKEN);
